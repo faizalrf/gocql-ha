@@ -31,6 +31,7 @@ func main() {
 	defer session.Close()
 
 	fmt.Println("Connected to ScyllaDB!")
+
 	rowCount := 0
 	numRetry := 5
 	numSecondWait := 10 * time.Second
@@ -52,7 +53,7 @@ func main() {
 func writeDataWithRetry(cluster *gocql.ClusterConfig, session **gocql.Session, maxRetries int, delay time.Duration) error {
 	accountID := gocql.MustRandomUUID()
 	for i := 0; i < maxRetries; i++ {
-		err := (*session).Query(`UPDATE daily_account_stat SET "list" = "list" + ? WHERE account_id = ? AND date = ?`, 1, accountID.String(), getCurrentDate()).Exec()
+		err := (*session).Query(`UPDATE tab1 SET "c3" = "c3" + ? WHERE c1 = ? AND c2 = ?`, 1, accountID.String(), getCurrentDate()).Exec()
 		if err == nil {
 			return nil // Success
 		}
