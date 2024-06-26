@@ -10,7 +10,10 @@ Now, connect to the 4th node which does not have ScyllaDB installed, we will use
 
 - Download `go` from <https://golang.org/dl/>
     - Install `go` <https://go.dev/doc/install>
-    - Download this gocql-ha repo from git and `cd gocql-ha` folder
+    - Download this gocql-ha repo from git and `cd gocql-ha` folder 
+        - `wget https://github.com/faizalrf/gocql-ha/archive/refs/heads/main.zip`
+        - `unzip main.zip`
+        - `cd gocql-ha-main`
     - Execute `go mod init gocql-ha` to init `go`
     - Execute `go mod tidy` to add module requirements and sums
     - Get the `gocql` drivers `go get github.com/gocql/gocql` 

@@ -62,7 +62,7 @@ func writeDataWithSimpleRetryPolicy(session *gocql.Session, maxRetries int) erro
 	// automatically executing the query on another node if the original one times out
 	sp := &gocql.SimpleSpeculativeExecution{
 		NumAttempts:  maxRetries,
-		TimeoutDelay: 10 * time.Millisecond,
+		TimeoutDelay: 1000 * time.Millisecond,
 	}
 	//Counters Update
 	cql := `UPDATE tab1 SET "c3" = "c3" + ? WHERE c1 = ? AND c2 = ?`
