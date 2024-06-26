@@ -11,7 +11,7 @@ import (
 /*
 * 	Test code written to test the gocql driver behaviour if scylla nodes go down.
 * 	The code using the built-in Simple Retry policy to automatically rerty the faild execution
-*   The retry is seamless and the application does not see any failures
+*   The retry is seamless and the application does not see any failures and executes smoothly
 * 	Faisal 25-Jun-2024
  */
 
