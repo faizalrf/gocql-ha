@@ -18,7 +18,7 @@ import (
 func main() {
 	fmt.Println("Automatic SimpleRetry GOCQL Policy Test!")
 	// Define the ScyllaDB cluster
-	cluster := gocql.NewCluster("172.18.0.2", "172.18.0.2", "172.18.0.2")
+	cluster := gocql.NewCluster("172.18.0.2", "172.18.0.3", "172.18.0.4")
 	cluster.PoolConfig.HostSelectionPolicy = gocql.TokenAwareHostPolicy(gocql.RoundRobinHostPolicy())
 	cluster.Logger = gocql.Logger // Enable logging
 
