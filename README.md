@@ -8,7 +8,8 @@ Once the nodes are ready, connect to one of the nodes using `cqlsh` and create t
 
 Now, connect to the 4th node which does not have ScyllaDB installed, we will use this for the GO, do the following on this node.
 
-- Install and configure `go` from <https://golang.org/dl/>
+- Download `go` from <https://golang.org/dl/>
+    - Install `go` <https://go.dev/doc/install>
     - Download this gocql-ha repo from git and `cd gocql-ha` folder
     - Execute `go mod init gocql-ha` to init `go`
     - Execute `go mod tidy` to add module requirements and sums
