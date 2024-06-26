@@ -1,4 +1,4 @@
-CREATE KEYSPACE testksp WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'replication_factor' : 3} AND TABLETS = {'enabled': false};
+CREATE KEYSPACE testksp WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'replication_factor' : 3};
 CREATE TABLE testksp.tab1 (
     c1 text,
     c2 date,
