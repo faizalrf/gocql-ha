@@ -1,0 +1,40 @@
+services:
+  scylla-node1:
+    image: scylladb/scylla:latest
+    command: "--reactor-backend=epoll --overprovisioned 1 --smp 1"
+    networks:
+      scylladb-net:
+        ipv4_address: 172.18.0.2
+  scylla-node2:
+    image: scylladb/scylla:latest
+    command: "--reactor-backend=epoll --overprovisioned 1 --smp 1 --seeds '172.18.0.2'"
+    depends_on:
+        - scylla-node1
+    networks:
+      scylladb-net:
+        ipv4_address: 172.18.0.3
+  scylla-node3:
+    image: scylladb/scylla:latest
+    command: "--reactor-backend=epoll --overprovisioned 1 --smp 1 --seeds '172.18.0.2'"
+    depends_on:
+        - scylla-node1
+        - scylla-node2
+    networks:
+      scylladb-net:
+        ipv4_address: 172.18.0.4
+  my-gocql-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - scylla-node1
+      - scylla-node2
+      - scylla-node3
+    networks:
+      scylladb-net:
+networks:
+  scylladb-net:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+
